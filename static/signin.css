@@ -48,9 +48,7 @@ body {
 .checkbox{
   margin-top: 10px;
 }
-.btn-secondary{
-  margin: 20px;
-}
+
 .fp:hover,
 .fp:focus{
   border-bottom-color: black;
