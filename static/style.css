@@ -47,9 +47,9 @@ div.action-buttons
 }
 div.content
 {
-	background-color: white;
-	border-radius: 5px;
-	padding: 10px;
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 div.content td, div.content th 
 {

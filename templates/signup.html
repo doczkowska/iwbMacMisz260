@@ -1,23 +1,36 @@
-{% extends "base.html" %}
+<!doctype html>
+<html>
+<head>
+   
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link href="/static/signin.css" rel="stylesheet">
 
-{% block content %}
-<h3 class="title">Rejestracja</h3>
-<div class="content">
-	<form action="" method="post">
+</head>
+<body class="text-center">
 	{% csrf_token %}
-	<table>
-	{{ form }}
-	</table>
-	<div class="btn-group" role="group">
-		<button class="btn btn-primary btn-sm"
-				type="submit">
-			<i class="fas fa-sign-in"></i> Zarejestruj
-		</button>
-		<a class="btn btn-secondary btn-sm"
-			href="{% url "service-list" %}">
-			<i class="fas fa-undo"></i> Anuluj
-		</a>
-	</div>
+<main class="form-signin">
+<form action="{% block url %}{% endblock %}" method="post">
+	{% csrf_token %}
+    <h1 class="h3 mb-3 fw-normal">Rejestracja</h1>
+<form>
+	<label for="inputUsername" class="visually-hidden">User</label>
+    	<input type="Username" id="inputName" class="form-control" placeholder="Nazwa Użytkownika:" {{form.username}}
+    <label for="inputName" class="visually-hidden">User</label>
+    	<input type="Name" id="inputName" class="form-control" placeholder="Imię" {{form.first_name}}
+    <label for="inputSurname" class="visually-hidden">Surname</label>
+    	<input type="Surname" id="inputSurname" class="form-control" placeholder="Nazwisko" {{form.last_name}}
+    <label for="inputEmail" class="visually-hidden">Email</label>
+    	<input type="email" id="inputEmail" class="form-control" placeholder="Email" {{form.email}}
+    <label for="inputPassword" class="visually-hidden">Password</label>
+    	<input type="password" id="inputpassword" class="form-control" placeholder="Podaj Hasło" {{form.password1}}
+    <label for="inputPassword" class="visually-hidden">Password</label>
+    	<input type="password" id="confirmpassword" class="form-control" placeholder="Zatwierdź hasło" {{form.password2}}
+    <label for="inputPassword" class="visually-hidden">Password</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Rejestruj</button>
+
 </form>
-</div>
-{% endblock %}
+	<a class="w-100 btn btn-lg btn-secondary" href="{% url "startpage" %}">Wróć</a>
+</main>
+</body>
+</html>

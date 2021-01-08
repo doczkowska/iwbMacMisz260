@@ -1,31 +1,27 @@
 <!doctype html>
 <html>
-  <head>
+<head>
    
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-   
-
-    <link href="/static/signin.css" rel="stylesheet">
-  </head>
-  <body class="text-center">
+<link href="/static/signin.css" rel="stylesheet">
+  
+</head>
+<body class="text-center">
     {% csrf_token %}
 <main class="form-signin">
-  <form>
-    <h1 class="h3 mb-3 fw-normal">Logowanie</h1>
+<form action="{% block url %}{% endblock %}" method="post">
+	{% csrf_token %}
+<h1 class="h3 mb-3 fw-normal">Logowanie</h1>
     <label for="inputEmail" class="visually-hidden">Użytkownik</label>
-    <input type="User" id="inputUser" class="form-control" placeholder="Użytkownik" required>
+    	<input type="User" id="inputUser" class="form-control" placeholder="Użytkownik" {{form.username}}
     <label for="inputPassword" class="visually-hidden">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" required>
-    <div class="checkbox mb-3">
-      <label>
+    	<input type="password" id="inputPassword" class="form-control" placeholder="Hasło" {{form.password}}
+<div class="checkbox mb-3">
+    <label>
         <input type="checkbox" value="remember-me" class="checker"> Zapamiętaj mnie
-      </label>
-    </div>
-		<div class="btn-group" role="group">
-			<button class="btn btn-primary btn-sm"
-					type="submit">
-				<i class="fas fa-sign-in"></i> Zaloguj
-		</div>
+     </label>
+</div>
+    <button class="w-100 btn btn-lg btn-primary " type="submit">Zaloguj</button>
     <div>
       <a  href="#" class="fp">Nie pamiętasz hasła?</a> 
     </div>
