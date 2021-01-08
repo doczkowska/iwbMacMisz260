@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class="title">{% block title %}{% endblock %}</h3>
+<div class="content">
+<form action="{% block url %}{% endblock %}"
+	  method="post"
+	  enctype="multipart/form-data">
+	{% csrf_token %}
+	<table>
+		{{ form }}
+	</table>
+	<div class="btn-group" role="group">
+		<button class="btn btn-primary btn-sm"
+				type="submit">
+			<i class="fas fa-save"></i> Zapisz
+		</button>
+		<a class="btn btn-secondary btn-sm"
+		   href="{% url "service-list" %}">
+			<i class="fas fa-undo"></i> Anuluj
+		</a>
+	</div>
+</form>
+</div>
+{% endblock %}

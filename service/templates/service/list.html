@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block content %}
+<h3 class="title">Lista zgłoszeń</h3>
+<div class="filter">
+	<form action="." method="post">
+		<div class="form-row">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button class="btn btn-primary btn-sm search" type="submit">
+				<i class="fas fa-search"></i> Szukaj
+			</button>
+		</div>
+	</form>
+	{% if user.is_authenticated %}
+	<div class="action-buttons">
+		<a class="btn btn-primary btn-sm"
+		   href="{% url "service-create" %}">
+			<i class="fas fa-plus"></i> Dodaj
+		</a>
+	</div>
+	{% endif %}
+</div>
+<div class="content">
+	<table class="table">
+		<tr>
+			<th></th>
+			<th>Numer</th>
+			<th>Data</th>
+			<th>Status</th>
+			<th>Kategoria</th>
+			<th></th>
+		</tr>
+		{% for notice in notices %}
+			<tr>
+				<td>
+					{% if notice.image %}
+						{% thumbnail notice.image "x50" crop="center" as small_image %}
+						<img src="{{ small_image.url }}" />
+						{% endthumbnail %}
+					{% endif %}
+				</td>
+				<td>
+					<a href="{% url "service-preview" notice.id %}">
+					{{ notice.number }}
+					</a>
+				</td>
+				<td>{{ notice.date|date:"Y-m-d H:i:s" }}</td>
+				<td class="{{ notice.status_color }}">
+					{{ notice.status_name }}
+				</td>
+				<td>{{ notice.category|default:"" }}</td>
+				<td class="text-right">
+					{% if user.is_authenticated %}
+					<div class="btn-group" role="group">
+						<a class="btn btn-primary btn-sm"
+						   href="{% url "service-update" notice.id %}">
+						   <i class="fas fa-edit"></i> Edytuj
+						</a>
+						<a class="btn btn-danger btn-sm"
+						   href="{% url "service-delete" notice.id %}">
+						   <i class="fas fa-trash"></i> Usuń
+						</a>
+					</div>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

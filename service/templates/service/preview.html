@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+
+{% block content %}
+<h3 class="title">Zgłoszenie numer:</strong> {{ notice.number }}</h3>
+<div class="content">
+	<table>
+		<tr>
+			<th>Data</th>
+			<td>{{ notice.date|date:"Y-m-d H:i:s" }}</td>
+		</tr>
+		<tr>
+			<th>Status</th>
+			<td class="{{ notice.status_color }}">
+				{{ notice.status_name }}
+			</td>
+		</tr>
+		<tr>
+			<th>Kategoria</th>
+			<td>{{ notice.category|default:"" }}</td>
+		</tr>
+		<tr>
+			<th>Opis</th>
+			<td>{{ notice.description }}</td>
+		</tr>
+		<tr>
+			<th>Uwaga</th>
+			<td>{{ notice.comment }}</td>
+		</tr>
+		<tr>
+			<th>Obraz</th>
+			<td>
+				{% if notice.image %}
+					<a href="{{ notice.image.url }}" target="_blank" >
+						{% thumbnail notice.image "200x300" crop="center" as small_image %}
+						<img src="{{ small_image.url }}" />
+						{% endthumbnail %}
+					</a>
+				{% endif %}
+			</td>
+		</tr>
+		<tr>
+			<th>Plik</th>
+			<td>
+			{% if notice.file %}
+				<a target = "_blank"
+				<a href ={% url "private-media" notice.id %}">
+				{{ notice.file_name }}
+				</a>
+			{% endif %}
+			</td>
+		</tr>
+	</table>
+</div>
+<div>
+	<a class="btn btn-primary btn-sm"
+		href="{% url "service-list" %}">
+		<i class="fas fa-undo"></i> Powrót do listy
+	</a>
+</div>
+{% endblock %}

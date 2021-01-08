@@ -1,0 +1,91 @@
+body
+{
+	background-color: #e6e6e6;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	max-width: 1024px;
+	text-align: center;
+}
+section.header
+{
+	text-align: left;
+}
+section.footer
+{
+	text-align: right;
+}
+section.content
+{
+	background-color: white;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+h3.title
+{
+	background-color: #A9A9A9;
+	padding: 10px 5px 10px 5px;
+	border-radius: 5px 5px 0 0;
+	font-weight: bold;
+	color: navy;
+	margin-bottom: 0;
+}
+div.filter
+{
+	background-color: #dee0e3;
+	padding: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+div.action-buttons
+{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+div.content
+{
+	background-color: white;
+	border-radius: 5px;
+	padding: 10px;
+}
+div.content td, div.content th 
+{
+	padding: 5px;
+	text-align: justify;
+	vertical-align: top; 
+}
+div.content td
+{
+	text-align: justify; 
+}
+div.content tr
+{
+	border-bottom: 1px solid #d9d9d9;
+}
+.search
+{
+	height: 36px;
+	padding: 4px 8px 4px 8px;
+	margin-top: 33px;
+}
+.form-control
+{
+	padding: 2px 6px 2px 6px;
+}
+
+input[type=date]
+{
+	width: 160px;
+}
+select
+{
+	width: 120px;
+}
+span.login
+{
+	display: block;
+	float: right;
+}

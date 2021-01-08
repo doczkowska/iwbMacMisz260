@@ -1,0 +1,4 @@
+{% extends "service/edit.html" %}
+
+{% block title %}Edytuj zgłoszenie{% endblock %}
+{% block url %}{% url "service-update" form.instance.id %}{% endblock %}

@@ -1,0 +1,53 @@
+{% load static %}
+
+<!doctype html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8" />
+	<title>Serwis</title>
+	<link rel="stylesheet"
+		  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		  crossorigin="anonymous"/>
+	<link rel="stylesheet"
+		  href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+		  crossorigin="anonymous"/>
+	<link rel="stylesheet"
+		  href="{% static "style.css" %}"/>
+	<link rel="icon"
+		  href="{% static "favicon.ico" %}"
+		  type="image/x-icon"/>
+</head>
+<body>
+<section class="header">
+	<div class="row">
+		<div class="col-lg-6 col-8">
+			<img src="{% static "baner.png" %}" alt="Jakiś"/>
+		</div>
+		<div class="col-lg-6 col-4 text-right">
+			{% if user.is_authenticated %}
+				{{ user.username }}
+				<a href="{% url "logout" %}">
+					<i class="fas fa-sign-out"></i> Wyloguj
+				</a>
+			{% else %}
+				<a href="{% url "login" %}">
+					<i class="fas fa-sign-in"></i> Zaloguj
+				</a>
+				<div class="mt-1 small">
+					Nie masz konta? <a href="{% url "signup" %}">Zarejestruj się!</a>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+<section class="content">
+{% block content %}
+{% endblock %}
+</section>
+<section class="footer">
+Powered by 260b team
+</section>
+</body>
+</html>
