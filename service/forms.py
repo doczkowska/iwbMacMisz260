@@ -69,8 +69,10 @@ class NoticeForm(forms.ModelForm):
                    "comment": forms.widgets.Textarea(attrs={"class": "form-control",
                                                             "cols": 50,
                                                             "rows": 8}),
-                   "image": forms.widgets.FileInput(attrs={"class": "form-control"})}
-        
+                   "image": forms.widgets.FileInput(attrs={"class": "form-control"}),
+                   "file": forms.widgets.FileInput(attrs={"class": "form-control"})}
+
+
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User

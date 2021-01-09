@@ -1,13 +1,12 @@
 from django.http.response import HttpResponse
 from datetime import datetime
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from service.forms import CreateUserForm
 from django.core.mail import EmailMessage
 from django.conf import settings
 
-def hello(request):
+def hello():
     return HttpResponse("""<html>
     <body>
         <b>Witaj świecie!!!</b>

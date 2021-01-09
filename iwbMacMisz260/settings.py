@@ -146,5 +146,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '####'
 EMAIL_HOST_PASSWORD = '#####'
 
-PRIVATE_STORAGE_ROOT = os.path.join(BASE_DIR, 'private/')
-PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_staff'
+PRIVATE_STORAGE_ROOT = os.path.join(BASE_DIR, "private/")
+PRIVATE_STORAGE_AUTH_FUNCTION = "private_storage.permissions.allow_authenticated"

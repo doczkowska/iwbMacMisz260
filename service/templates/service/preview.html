@@ -43,12 +43,12 @@
 		<tr>
 			<th>Plik</th>
 			<td>
-			{% if notice.file %}
-				<a target = "_blank"
-				<a href ={% url "private-media" notice.id %}">
-				{{ notice.file_name }}
-				</a>
-			{% endif %}
+				{% if notice.file %}
+					<a target="_blank"
+					   href="{% url "private-media" notice.id %}">
+					   {{ notice.file_name }}
+					</a>
+				{% endif %}
 			</td>
 		</tr>
 	</table>

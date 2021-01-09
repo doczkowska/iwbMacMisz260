@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from iwbMacMisz260.views import hello, signup, startpage
-from django.urls.conf import include, re_path
+from django.urls.conf import include
 from django.contrib.auth import views as auth_views
 from iwbMacMisz260 import settings
-import private_storage
-from private_storage.views import PrivateStorageDetailView
+import private_storage.urls
+from service.views import NoticePrivateDownloadView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,9 +29,10 @@ urlpatterns = [
     path("login/", auth_views.LoginView.as_view(template_name="login.html"), name="login"),
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
     path("signup/", signup, name="signup"),
-    path("start/", startpage, name = "startpage")]
-#   path("private-media/<int:pk>/", NoticePrivateDownloadView.as_view(), name= "private-media")]
-
+    path("start/", startpage, name = "startpage"),
+    path("private-media/<int:pk>/", NoticePrivateDownloadView.as_view(), name="private-media")
+    ]
+    
 if settings.DEBUG:
     from django.conf.urls.static import static
     urlpatterns += static(settings.MEDIA_URL,

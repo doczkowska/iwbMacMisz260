@@ -1,5 +1,6 @@
 from django.db import models
 from private_storage.fields import PrivateFileField
+import os
 
 
 class Category(models.Model):
@@ -48,15 +49,14 @@ class Notice(models.Model):
                               blank=True,
                               default="",
                               verbose_name="obraz")
-    
-    file = PrivateFileField(upload_to= 'notice/',
+    file = PrivateFileField(upload_to="notice/",
                             null=True,
                             blank=True,
                             default="",
-                            content_types =['application/pdf'],
+                            content_types=["application/pdf"],
                             max_file_size = 2*1024*1024,
-                            verbose_name = 'plik')
-    
+                            verbose_name="plik")
+
     class Meta:
         ordering = ["-date",
                     "number"]
@@ -82,3 +82,8 @@ class Notice(models.Model):
         elif self.status == self.REJECTED:
             return "text-secondary"
         return ""
+    
+    #property
+    def file_name(self):
+        return os.path.basename(self.file.name)
+    

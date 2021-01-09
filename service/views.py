@@ -7,7 +7,6 @@ from service.forms import SearchForm, NoticeForm
 from django.contrib.auth.decorators import login_required
 from private_storage.views import PrivateStorageDetailView
 
-
 def list_(request):
     form = SearchForm(request.POST)
     notices = None
@@ -78,10 +77,11 @@ def delete(request, pk):
                       pk=pk).delete()
     return redirect("service-list") 
 
+
 class NoticePrivateDownloadView(PrivateStorageDetailView):
     model = Notice
-    model_file_filed = "file"
-    
+    model_file_field = "file"
+
     def can_access_file(self, private_file):
         if self.request.user.is_authenticated:
             return True
