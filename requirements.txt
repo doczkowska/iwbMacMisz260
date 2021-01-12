@@ -1,0 +1,14 @@
+appdirs==1.4.4
+asgiref==3.2.10
+distlib==0.3.1
+Django==3.1
+django-private-storage==2.2.2
+filelock==3.0.12
+Pillow==8.0.1
+psycopg2==2.8.6
+py-postgresql==1.2.2
+pytz==2020.1
+six==1.15.0
+sorl-thumbnail==12.7.0
+sqlparse==0.3.1
+virtualenv==20.0.31

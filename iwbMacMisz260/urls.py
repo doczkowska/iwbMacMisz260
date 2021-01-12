@@ -26,8 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("witaj/", hello),
     path("service/", include("service.urls")),
-    path("login/", auth_views.LoginView.as_view(template_name="login.html"), name="login"),
-    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path('accounts/', include('django.contrib.auth.urls')),
     path("signup/", signup, name="signup"),
     path("start/", startpage, name = "startpage"),
     path("private-media/<int:pk>/", NoticePrivateDownloadView.as_view(), name="private-media")

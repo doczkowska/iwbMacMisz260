@@ -12,6 +12,7 @@
 <form action="{% block url %}{% endblock %}" method="post">
 	{% csrf_token %}
 <h1 class="h3 mb-3 fw-normal">Logowanie</h1>
+<h3 class="h5 mb-3 fw-normal">...</h3>
     <label for="inputEmail" class="visually-hidden">Użytkownik</label>
     	<input type="User" id="inputUser" class="form-control" placeholder="Użytkownik" {{form.username}}
     <label for="inputPassword" class="visually-hidden">Password</label>
@@ -23,7 +24,7 @@
 </div>
     <button class="w-100 btn btn-lg btn-primary " type="submit">Zaloguj</button>
     <div>
-      <a  href="#" class="fp">Nie pamiętasz hasła?</a> 
+      <a  href="{% url 'password_reset' %}" class="fp">Nie pamiętasz hasła?</a> 
     </div>
     <div>
       <a  href="{% url "signup" %}" class="fp">Nie masz konta? Zarejestruj sie!</a> 
