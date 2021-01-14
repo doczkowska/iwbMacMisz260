@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//service/templates/registration/login.html=UTF-8
 encoding//service/templates/service/list.html=UTF-8
 encoding//service/templates/service/preview.html=UTF-8
+encoding//service/templates/service/profile.html=UTF-8
 encoding//service/templates/service/start.html=UTF-8
 encoding//service/templates/service/update.html=UTF-8
 encoding//templates/signup.html=UTF-8

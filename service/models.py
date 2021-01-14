@@ -1,7 +1,7 @@
 from django.db import models
 from private_storage.fields import PrivateFileField
 import os
-
+from django.conf import settings
 
 class Category(models.Model):
     symbol = models.CharField(max_length=64,
@@ -16,6 +16,11 @@ class Category(models.Model):
 
 
 class Notice(models.Model):
+    user = models.ForeignKey(
+                            settings.AUTH_USER_MODEL, db_column="user",
+                            on_delete=models.CASCADE,
+                            verbose_name="Zadanie dla")
+    
     number = models.CharField(max_length=16,
                               unique=True,
                               verbose_name="Numer",

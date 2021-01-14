@@ -1,4 +1,3 @@
-
 from datetime import datetime, time
 from django.shortcuts import render, redirect, get_object_or_404
 from service.models import Notice
@@ -6,6 +5,8 @@ from django.db.models import Q
 from service.forms import SearchForm, NoticeForm
 from django.contrib.auth.decorators import login_required
 from private_storage.views import PrivateStorageDetailView
+
+
 
 def list_(request):
     form = SearchForm(request.POST)
@@ -25,6 +26,8 @@ def list_(request):
             notice_filter &= Q(status__in=form.cleaned_data["status"])
         if form.cleaned_data["category"]:
             notice_filter &= Q(category=form.cleaned_data["category"])
+        if form.cleaned_data["user"]:
+            notice_filter &= Q(category=form.cleaned_data["user"])
         
         notices = Notice.objects.filter(notice_filter)
     return render(request,

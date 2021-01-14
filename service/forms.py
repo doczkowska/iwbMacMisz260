@@ -6,6 +6,13 @@ from django.contrib.auth.models import User
 
 
 class SearchForm(forms.Form):
+    user = forms.ModelChoiceField(required=False,
+                                    empty_label="",
+                                    label="Dla",
+                                    label_suffix="",
+                                    queryset=Category.objects.all(),
+                                    widget=forms.widgets.Select(attrs={"class": "form-control"}))
+    
     fraze = forms.CharField(required=False,
                             label="Fraza",
                             label_suffix="",
@@ -49,6 +56,7 @@ class NoticeForm(forms.ModelForm):
     class Meta:
         model=Notice
         fields = ["number",
+                  "user",
                   "date",
                   "status",
                   "category",
@@ -56,21 +64,25 @@ class NoticeForm(forms.ModelForm):
                   "comment",
                   "image",
                   "file"]
-        widgets = {"date": forms.widgets.DateInput(attrs={"type": "date"}),
-                   "number": forms.widgets.TextInput(attrs={"class": "form-control",
-                                                            "style": "width:160px;"}),
-                   "status": forms.widgets.Select(attrs={"class": "form-control",
+        
+        widgets = { "author": forms.widgets.Select(attrs={"class": "form-control",
                                                          "style": "width:120px;display:inline"}),
-                   "category": forms.widgets.Select(attrs={"class": "form-control",
+                    "date": forms.widgets.DateInput(attrs={"type": "date"}),
+                    
+                    "number": forms.widgets.TextInput(attrs={"class": "form-control",
+                                                            "style": "width:160px;"}),
+                    "status": forms.widgets.Select(attrs={"class": "form-control",
+                                                         "style": "width:120px;display:inline"}),
+                    "category": forms.widgets.Select(attrs={"class": "form-control",
                                                          "style": "width:200px;display:inline"}),
-                   "description": forms.widgets.Textarea(attrs={"class": "form-control",
+                    "description": forms.widgets.Textarea(attrs={"class": "form-control",
                                                                 "cols": 50,
                                                                 "rows": 8}),
-                   "comment": forms.widgets.Textarea(attrs={"class": "form-control",
+                    "comment": forms.widgets.Textarea(attrs={"class": "form-control",
                                                             "cols": 50,
                                                             "rows": 8}),
-                   "image": forms.widgets.FileInput(attrs={"class": "form-control"}),
-                   "file": forms.widgets.FileInput(attrs={"class": "form-control"})}
+                    "image": forms.widgets.FileInput(attrs={"class": "form-control"}),
+                    "file": forms.widgets.FileInput(attrs={"class": "form-control"})}
 
 
 class CreateUserForm(UserCreationForm):

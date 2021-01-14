@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from iwbMacMisz260.views import hello, signup, startpage
+from iwbMacMisz260.views import hello, signup, startpage, profile
 from django.urls.conf import include
 from django.contrib.auth import views as auth_views
 from iwbMacMisz260 import settings
@@ -28,7 +28,8 @@ urlpatterns = [
     path("service/", include("service.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     path("signup/", signup, name="signup"),
-    path("start/", startpage, name = "startpage"),
+    path("", startpage, name = "startpage"),
+    path("profile", profile, name = "profile"),
     path("private-media/<int:pk>/", NoticePrivateDownloadView.as_view(), name="private-media")
     ]
     

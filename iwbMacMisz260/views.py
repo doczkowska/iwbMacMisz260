@@ -35,7 +35,7 @@ def signup(request):
             email.fail_silently = False
             email.send()  
             print('Wysłano Mail na: ',request.user.email)      
-            return redirect("service-list")
+            return redirect("startpage")
 
     else:
         form = CreateUserForm()
@@ -46,3 +46,7 @@ def signup(request):
 def startpage(request):
     return render(request,
                   template_name= "service/start.html")
+
+def profile(request):
+    return render(request,
+                  template_name= "service/profile.html")
