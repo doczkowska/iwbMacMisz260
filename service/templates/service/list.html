@@ -52,7 +52,7 @@
 					{{ notice.status_name }}
 				</td>
 				<td>{{ notice.category|default:"" }}</td>
-				<td>{{ form.user }}</td>
+				<td>{{ notice.user }}</td>
 			
 				<td class="text-right">
 					{% if user.is_authenticated %}

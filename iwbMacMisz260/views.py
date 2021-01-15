@@ -30,11 +30,11 @@ def signup(request):
                 'Potwierdzenie Rejestracji',
                 'Dziękuję to był tylko test',
                 settings.EMAIL_HOST_USER,
-                [request.user.email])
+                [request.owner.email])
             
             email.fail_silently = False
             email.send()  
-            print('Wysłano Mail na: ',request.user.email)      
+            print('Wysłano Mail na: ',request.owner.email)      
             return redirect("startpage")
 
     else:

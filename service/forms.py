@@ -6,13 +6,7 @@ from django.contrib.auth.models import User
 
 
 class SearchForm(forms.Form):
-    user = forms.ModelChoiceField(required=False,
-                                    empty_label="",
-                                    label="Dla",
-                                    label_suffix="",
-                                    queryset=Category.objects.all(),
-                                    widget=forms.widgets.Select(attrs={"class": "form-control"}))
-    
+
     fraze = forms.CharField(required=False,
                             label="Fraza",
                             label_suffix="",
@@ -34,6 +28,7 @@ class SearchForm(forms.Form):
                                label_suffix="",
                                choices=STATUS_CHOICES,
                                widget=forms.widgets.Select(attrs={"class": "form-control"}))
+    
     category = forms.ModelChoiceField(required=False,
                                       queryset=Category.objects.all(),
                                       empty_label="",
@@ -65,8 +60,9 @@ class NoticeForm(forms.ModelForm):
                   "image",
                   "file"]
         
-        widgets = { "author": forms.widgets.Select(attrs={"class": "form-control",
+        widgets =   {"user": forms.widgets.Select(attrs={"class": "form-control",
                                                          "style": "width:120px;display:inline"}),
+                                                         
                     "date": forms.widgets.DateInput(attrs={"type": "date"}),
                     
                     "number": forms.widgets.TextInput(attrs={"class": "form-control",
