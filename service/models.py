@@ -19,7 +19,7 @@ class Notice(models.Model):
     
     user = models.ForeignKey(User,                            
                             on_delete = models.PROTECT,
-                            verbose_name = "user")
+                            verbose_name = "Zadanie dla")
                             
     number = models.CharField(max_length=16,
                               unique=True,

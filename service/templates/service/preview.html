@@ -11,6 +11,10 @@
 			<td>{{ notice.date|date:"Y-m-d H:i:s" }}</td>
 		</tr>
 		<tr>
+			<th>Zadanie dla</th>
+			<td>{{ notice.user }}</td>
+		</tr>
+		<tr>
 			<th>Status</th>
 			<td class="{{ notice.status_color }}">
 				{{ notice.status_name }}

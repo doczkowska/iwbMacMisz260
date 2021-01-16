@@ -7,4 +7,5 @@ urlpatterns = [
     path("create/", create, name="service-create"),
     path("update/<int:pk>/", update, name="service-update"),
     path("delete/<int:pk>/", delete, name="service-delete")
+    
 ]

@@ -26,7 +26,7 @@ def list_(request):
             notice_filter &= Q(status__in=form.cleaned_data["status"])
         if form.cleaned_data["category"]:
             notice_filter &= Q(category=form.cleaned_data["category"])
-
+        
         
         notices = Notice.objects.filter(notice_filter)
     return render(request,
@@ -89,3 +89,6 @@ class NoticePrivateDownloadView(PrivateStorageDetailView):
             return True
         else:
             return False
+        
+
+
