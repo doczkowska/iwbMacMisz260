@@ -13,14 +13,18 @@
 			</button>
 		</div>
 	</form>
-	{% if user.is_authenticated %}
+		{% if user.is_authenticated %}
 	<div class="action-buttons">
-		<a class="btn btn-primary btn-sm"
-		   href="{% url "service-create" %}">
-			<i class="fas fa-plus"></i> Dodaj
-		</a>
+		<a class="btn btn-warning btn-sm" href="#"> <i class="bi bi-alarm-fill fa-lg"></i> Moje zadania </a>
+		<a class="btn btn-success btn-sm" href="#">  <i class="bi bi-check-square fa-lg"></i> Ukończone zadania </a>
 	</div>
-	{% endif %}
+		{% endif %}
+		{% if user.is_superuser %}
+			<div class="action-buttons">
+		<a class="btn btn-secondary" href="#"> <i class="bi bi-list-task fa-lg"></i> Wszystkie zadania </a>
+		<a class="btn btn-success" href="#"> <i class="bi bi-check-square fa-lg"></i> Wszystkie ukończone zadania </a>
+	</div>
+		{% endif %}
 </div>
 <div class="content">
 	<table class="table">
