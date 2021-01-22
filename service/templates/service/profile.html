@@ -63,44 +63,36 @@
 
 <main>
 
-  <section class="py-5 text-center container">
+  <section class="py-5 text-right container">
     <div class="row py-lg-5">
-      <div class="py-5 text-center container">
+      <div class="py-5 text-right container">
         <h1 class="fw-light">Witaj: 
         {{ user.first_name}}
 		{{ user.last_name}}
 		</h1>
+<div class = "row  row-cols-1 row-cols-md-2 g-4">
+<div class="col">
+            <div class="card">
 
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Moje Zadania
-  </button>
-</p>
+              <div class="card-body">
+                <h5 class="card-title">Serwis</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{% url "service-list" %}" class="btn btn-primary">Przejdz do serwisu</a>
+              </div>
+<div class="col">
+            <div class="card">
 
-<div class="collapse" id="collapseExample">
-  <div class="content"> 
-    <table class="table table-dark table-striped">
-    <tr>
-		<th>Numer</th>		
-		<th>Status</th>
-		<th>Kategoria</th>			
-	</tr>
-		{% for notice in notices %}
-			<tr>
-				<td>
-					<a href="{% url "service-preview" notice.id %}">
-					{{ notice.number }}
-					</a>
-				</td>
-				<td class="{{ notice.status_color }}">
-					{{ notice.status_name }}
-				</td>
-				<td>{{ notice.category|default:"" }}</td>
-		{% endfor %}	
-  </table>
-  </div>
-</div>
+              <div class="card-body">
+                <h5 class="card-title">Informator</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{% url "service-list" %}" class="btn btn-primary">Moje zadania</a>
+              </div>
+
+            </div>
+          </div>
+         </div>
 </section>
-<a href="{% url "service-create">AAA</a>
+
 </main>
  </body>
 </html>

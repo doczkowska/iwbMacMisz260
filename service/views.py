@@ -12,7 +12,11 @@ def list_(request):
     form = SearchForm(request.POST)
     notices = None
     if form.is_valid():
-        notice_filter = Q()
+        if request.user.is_superuser:
+            notice_filter = Q()
+        else:
+            notice_filter = Q(user = request.user)
+            
         if form.cleaned_data["fraze"] != "":
             notice_filter &= Q(Q(comment__icontains=form.cleaned_data["fraze"])
                                |Q(description__icontains=form.cleaned_data["fraze"])
